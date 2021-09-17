@@ -1,0 +1,1 @@
+console.log("This is the js file for main popup")
