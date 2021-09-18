@@ -12,7 +12,7 @@ async function update_status(){
     function(tabs){
         var complete_url = tabs[0].url
         current_url = getHostname(complete_url)
-        document.getElementById("URL").innerHTML = current_url;
+        document.getElementById("URL").innerHTML = "URL: " + current_url;
         var url = greenfoundation + current_url;
         fetch(url)
         .then(response => response.json())  
@@ -22,10 +22,12 @@ async function update_status(){
                 if(json.green === true) {
                     console.log("Eco friendly servers")
                     document.getElementById("green_server").innerHTML = "green";
+                    document.getElementById("HOSTING_GREEN").innerHTML = "Yayy! This website is hosted on a green server.";
                 }
                 else if(json.green === false) {
                     console.log("Non eco friendly servers")
                     document.getElementById("green_server").innerHTML = "not green";
+                    document.getElementById("HOSTING_GREEN").innerHTML = "Nay! This website is NOT hosted on a green server.";
                 }
             }
             )    
