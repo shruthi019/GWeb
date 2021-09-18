@@ -34,6 +34,8 @@ async function update_status(){
                     console.log("Non eco friendly servers")
                     document.getElementById("green_server").innerHTML = "not green";
                     document.getElementById("HOSTING_GREEN").innerHTML = "Nay! This website is NOT hosted on a green server.";
+                    //document.body.style.backgroundColor = '#FF3800';
+                    document.body.style.backgroundImage = 'url("/icons/wavered.svg")';
                 }
             }
             )    
