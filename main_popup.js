@@ -64,7 +64,7 @@ function page_speed(){
                 r = obj
                 console.log(obj);
                 var result = obj.lighthouseResult.audits["total-byte-weight"].numericValue / 1000
-                document.getElementById("DATA_CONSUMED").innerHTML = result.toString() + " kb";
+                document.getElementById("DATA_CONSUMED").innerHTML = "Data consumed by this url: " + result.toString() + " kb";
             }
             )    
         .catch(err => console.log('Request Failed', err)); 
