@@ -1,0 +1,80 @@
+@-webkit-keyframes sign-anim {
+    to {
+        background-position: 0 -7140px;
+   }
+}
+@-moz-keyframes sign-anim {
+    to {
+        background-position: 0 -7140px;
+   }
+}
+@keyframes sign-anim {
+    to {
+        background-position: 0 -7140px;
+   }
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: white;
+}
+::-moz-selection {
+    background: white;
+}
+section {
+    height: 100%;
+    min-height: 335px;
+    background-color: #FFF;
+    background-image: radial-gradient(center top,circle cover,#FFF,#D6D6D6);
+    background-image: -o-radial-gradient(center top,circle cover,#FFF,#D6D6D6);
+    background-image: -ms-radial-gradient(center top,circle cover,#FFF,#D6D6D6);
+    background-image: -moz-radial-gradient(center top,circle cover,#FFF,#D6D6D6);
+    background-image: -webkit-radial-gradient(center top,circle cover,#FFF,#D6D6D6);
+    text-align: center;
+}
+section:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 335px;
+    pointer-events: none;
+    opacity: .30;
+}
+section .quote {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    bottom: 0.5%;
+    padding: 30px 0 15px 0;
+}
+section .quote cite {
+    color: #444;
+    font-family: "Hoefler Text", Georgia, Garamond, Times, serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 110%;
+    font-size: 1.7em;
+    font-variant: small-caps;
+}
+section .quote cite:before {
+    content: '"';
+    position: absolute;
+    left: -100px;
+    top: 100px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-size: 8em;
+    text-align: left;
+    font-family: Arial;
+    letter-spacing: -16px;
+    font-style: normal;
+    font-weight: bold;
+    color: #7b9ab9;
+}
