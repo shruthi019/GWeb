@@ -18,7 +18,7 @@ async function update_status(){
         .then(response => response.json())  
         .then(json => {
                 console.log(json);
-                document.getElementById("API_RESPONSE").innerHTML = JSON.stringify(json);
+                //document.getElementById("API_RESPONSE").innerHTML = JSON.stringify(json);
                 if(json.green === true) {
                     console.log("Eco friendly servers")
                     document.getElementById("green_server").innerHTML = "green";
