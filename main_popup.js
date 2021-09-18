@@ -1,4 +1,13 @@
 console.log("This is the js file for main popup")
+const KWG_PER_GB = 1.805;
+const RETURNING_VISITOR_PERCENTAGE = 0.75;
+const FIRST_TIME_VIEWING_PERCENTAGE = 0.25;
+const PERCENTAGE_OF_DATA_LOADED_ON_SUBSEQUENT_LOAD = 0.02;
+const CARBON_PER_KWG_GRID = 475;
+const CARBON_PER_KWG_RENEWABLE = 33.4;
+const PERCENTAGE_OF_ENERGY_IN_DATACENTER = 0.1008;
+const PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER = 0.8992;
+const CO2_GRAMS_TO_LITRES = 0.5562;
 
 //########################################################\\
 //                                                        \\
@@ -66,6 +75,9 @@ function page_speed(){
                 r = obj
                 console.log(obj);
                 var result = obj.lighthouseResult.audits["total-byte-weight"].numericValue / 1000
+                var energy_consumption = (result * 1000) * KWG_PER_GB / 1073741824
+                var co2 = energy_consumption * CARBON_PER_KWG_GRID
+                document.getElementById("CO2_EMITTED").innerHTML = "Co2 produced by this url: " + co2.toString() + "gm";
                 document.getElementById("DATA_CONSUMED").innerHTML = "Data consumed by this url: " + result.toString() + " kb";
             }
             )    
