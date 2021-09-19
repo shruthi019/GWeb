@@ -74,4 +74,15 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 #titleOfProject {
   margin:auto;
   width: 50%;
+  text-align: center;
+  
 }
+
+#header{
+  text-align: center;
+  font-family: cursive;
+  font-size: 35px;
+  padding-top: 3%;
+}
+
+
