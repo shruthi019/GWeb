@@ -38,6 +38,7 @@ async function update_status(){
                     console.log("Eco friendly servers")
                     document.getElementById("green_server").innerHTML = "green";
                     document.getElementById("HOSTING_GREEN").innerHTML = "Yayy! This website is hosted on a green server.";
+                    document.body.style.backgroundImage = 'url("/icons/wavegreen.svg")';
                 }
                 else if(json.green === false) {
                     console.log("Non eco friendly servers")
