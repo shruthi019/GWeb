@@ -8,6 +8,24 @@ const CARBON_PER_KWG_RENEWABLE = 33.4;
 const PERCENTAGE_OF_ENERGY_IN_DATACENTER = 0.1008;
 const PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER = 0.8992;
 const CO2_GRAMS_TO_LITRES = 0.5562;
+//########################################################\\
+//                                                        \\
+//                    WEEKLY GRAPH                        \\
+//                                                        \\
+//########################################################\\
+
+function display_graph() {
+    if(document.getElementById('weekly_data').style.display === 'none') {
+        document.getElementById('weekly_data').style.display = 'inline'
+        document.getElementById('site_metrics').style.display = 'none'
+    }
+    else {
+        document.getElementById('weekly_data').style.display = 'none'
+        document.getElementById('site_metrics').style.display = 'inline'
+    }
+}
+
+document.getElementById("report").addEventListener("click", display_graph);
 
 //########################################################\\
 //                                                        \\
@@ -42,11 +60,14 @@ async function update_status(){
                 }
                 else if(json.green === false) {
                     console.log("Non eco friendly servers")
-                    document.getElementById("green_server").innerHTML = "not green";
+                    document.getElementById("green_server").innerHTML = "red";
                     document.getElementById("HOSTING_GREEN").innerHTML = "Nay! This website is NOT hosted on a green server.";
                     //document.body.style.backgroundColor = '#FF3800';
                     document.body.style.backgroundImage = 'url("/icons/wavered.svg")';
                 }
+                chrome.storage.sync.set({total_co2: total}, function() {
+                    document.getElementById('TOTAL_CO2').innerHTML = "Total Co2: " + total
+                });
             }
             )    
         .catch(err => console.log('Request Failed', err)); 
@@ -80,6 +101,7 @@ function page_speed(){
                 var co2 = energy_consumption * CARBON_PER_KWG_GRID
                 document.getElementById("CO2_EMITTED").innerHTML = "Co2 produced by this url: " + co2.toString() + "gm";
                 document.getElementById("DATA_CONSUMED").innerHTML = "Data consumed by this url: " + result.toString() + " kb";
+                update_carbon_footprint(co2);
             }
             )    
         .catch(err => console.log('Request Failed', err)); 
@@ -87,3 +109,158 @@ function page_speed(){
 }
 
 document.getElementById("green_server").addEventListener("click", page_speed);
+
+
+//########################################################\\
+//                                                        \\
+//             DAY-WISE CARBON FOOTPRINT                  \\
+//                                                        \\
+//########################################################\\
+
+function update_carbon_footprint(carbon_to_add) {
+    console.log("updating co2.....")
+    var d = new Date();
+
+    if(d.getDay() === 0) {
+        chrome.storage.sync.get(['sunday'], function(result) {
+            var updated_value = result.sunday + carbon_to_add
+            chrome.storage.sync.set({sunday: updated_value}, function() {
+                document.getElementById('sunday').innerHTML = updated_value
+            });
+            chrome.storage.sync.get(['total_co2'], function(result) {
+                var total = result.total_co2 + carbon_to_add
+                chrome.storage.sync.set({total_co2: total}, function() {
+                    document.getElementById('TOTAL_CO2').innerHTML = "Total Co2: " + total
+                });
+            });
+        });
+    }
+
+    if(d.getDay() === 1) {
+        chrome.storage.sync.get(['monday'], function(result) {
+            var updated_value = result.monday + carbon_to_add
+            chrome.storage.sync.set({monday: updated_value}, function() {
+                document.getElementById('monday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+
+    if(d.getDay() === 2) {
+        chrome.storage.sync.get(['tuesday'], function(result) {
+            var updated_value = result.tuesday + carbon_to_add
+            chrome.storage.sync.set({tuesday: updated_value}, function() {
+                document.getElementById('tuesday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+
+    if(d.getDay() === 3) {
+        chrome.storage.sync.get(['wednesday'], function(result) {
+            var updated_value = result.wednesday + carbon_to_add
+            chrome.storage.sync.set({wednesday: updated_value}, function() {
+                document.getElementById('wednesday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+
+    if(d.getDay() === 4) {
+        chrome.storage.sync.get(['thursday'], function(result) {
+            var updated_value = result.thursday + carbon_to_add
+            chrome.storage.sync.set({thursday: updated_value}, function() {
+                document.getElementById('thursday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+
+    if(d.getDay() === 5) {
+        chrome.storage.sync.get(['friday'], function(result) {
+            var updated_value = result.friday + carbon_to_add
+            chrome.storage.sync.set({friday: updated_value}, function() {
+                document.getElementById('friday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+
+    if(d.getDay() === 6) {
+        chrome.storage.sync.get(['saturday'], function(result) {
+            var updated_value = result.saturday + carbon_to_add
+            chrome.storage.sync.set({saturday: updated_value}, function() {
+                document.getElementById('saturday').innerHTML = updated_value
+            });
+        });
+        chrome.storage.sync.get(['total_co2'], function(result) {
+            var total = result.total_co2 + carbon_to_add
+            chrome.storage.sync.set({total_co2: total}, function() {
+                document.getElementById('TOTAL_CO2').innerHTML = total
+            });
+        });
+    }
+}
+
+//########################################################\\
+//                                                        \\
+//                  WEEKLY DATA GRAPH                     \\
+//                                                        \\
+//########################################################\\
+
+// const labels = [
+//     'Monday',
+//     'Tuesday',
+//     'Wednesday',
+//     'Thursday',
+//     'Friday',
+//     'Saturday',
+//     'Sunday',
+//   ];
+//   const data = {
+//     labels: labels,
+//     datasets: [{
+//       label: 'Data usage everyday',
+//       backgroundColor: 'rgb(0, 0, 0)',
+//       borderColor: 'rgb(0, 0, 0)',
+//       data: [0, 10, 5, 2, 20, 30, 45, 50],
+//     }]
+//   };
+  
+//     const config = {
+//     type: 'line',
+//     data: data,
+//     options: {}
+//   };
+  
+//     // === include 'setup' then 'config' above ===
+  
+//     var myChart = new Chart(
+//       document.getElementById('myChart'),
+//       config
+//     );

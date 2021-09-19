@@ -26,14 +26,56 @@
         <p id = "DATA_CONSUMED" ></p>
         <p id = "CO2_EMITTED" ></p>
         <script src = "main_popup.js"></script>
+        <p id = "TOTAL_CO2"></p>
+    </div>
+    <div id = "weekly_data" style="display: none;">
+      <!-- <canvas id="myChart"></canvas> -->
+      <table style="display: inline;">
+        <tr>
+          <th>Day</th><th>Co2 emmitted</th>
+        </tr>
+        <tr>
+          <td>Sunday</td><td id = "sunday">0</td>
+        </tr>
+        <tr>
+          <td>Monday</td><td id = "monday">0</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td><td id = "tuesday">0</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td><td id = "wednesday">0</td>
+        </tr>
+        <tr>
+          <td>Thursday</td><td id = "thursday">0</td>
+        </tr>
+        <tr>
+          <td>Friday</td><td id = "friday">0</td>
+        </tr>
+        <tr>
+          <td>Saturday</td><td id = "saturday">0</td>
+        </tr>
+      </table>
+      <img src = "icons/graph.png" id = "graph">
+      <!-- <p id = "sunday">0</p>
+      <p id = "monday">0</p>
+      <p id = "tuesday">0</p>
+      <p id = "wednesday">0</p>
+      <p id = "thursday">0</p>
+      <p id = "friday">0</p>
+      <p id = "saturday">0</p> -->
     </div>
     <section>
       <div id="quotes" class="quote">
         <cite>
+          <p id = "random_q">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit
           fusce vel sapien elit in malesuada semper mi.
+         </p>
         </cite>
     </div>
+    <script src = "quote.js"></script>
     </section>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
   </body>
 </html>
