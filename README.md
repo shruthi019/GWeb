@@ -6,7 +6,7 @@ A chrome extension which tracks the carbon footprint of the user due to web brow
 # Demo
 https://www.youtube.com/watch?v=Dy7KJe2FhZw
 
-# Why GWeb
+# Why GWeb?
 In terms of greenhouse gas emissions, internet use accounts for 3.7% of global emissions, i.e. the equivalent of all air traffic in the world. GWeb is a web extension which can be used by anyone and everyone as a means to support sustainable development. It helps us to know if a particular website uses “Green” servers (eco friendly) or not, with added features to track users’ data usage on a particular site for past one week. It also provides with a tip to keep in mind so that we always go green.
 
 # Usage
