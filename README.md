@@ -1,5 +1,7 @@
 # GWeb
 A chrome extension which tracks the carbon footprint of the user due to web browsing.
+<img width="508" alt="the_good" src="https://user-images.githubusercontent.com/55705943/133957335-bcfc3794-79a7-4b4b-ad2a-8fa446cfe9f2.png">
+<img width="508" alt="the_bad" src="https://user-images.githubusercontent.com/55705943/133957369-e7b1a0de-f0be-41b8-af8b-94cc4bba0b7f.png">
 
 # Demo
 https://www.youtube.com/watch?v=Dy7KJe2FhZw
