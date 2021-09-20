@@ -125,12 +125,12 @@ function update_carbon_footprint(carbon_to_add) {
         chrome.storage.sync.get(['sunday'], function(result) {
             var updated_value = result.sunday + carbon_to_add
             chrome.storage.sync.set({sunday: updated_value}, function() {
-                document.getElementById('sunday').innerHTML = updated_value
+                document.getElementById('sunday').innerHTML = updated_value.toString().substring(0, 5)
             });
             chrome.storage.sync.get(['total_co2'], function(result) {
                 var total = result.total_co2 + carbon_to_add
                 chrome.storage.sync.set({total_co2: total}, function() {
-                    document.getElementById('TOTAL_CO2').innerHTML = "Total Co2: " + total
+                    document.getElementById('TOTAL_CO2').innerHTML = "Total Co2: " + total.toString().substring(0, 5)
                 });
             });
         });
